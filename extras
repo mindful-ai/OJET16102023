@@ -1,0 +1,54 @@
+// Whenever the submit button is clicked
+        document.getElementById("submit").onclick = function(){
+
+          // Read the inputs
+          var opa = parseFloat(document.getElementById("ina").value);
+          var opb = parseFloat(document.getElementById("inb").value);
+
+          // REad the operation selected
+          var selOp;
+          var radios = document.getElementsByName("op");
+          for(i = 0;i < radios.length;i++){
+            if(radios[i].checked){
+              selOp = radios[i].value;
+              break;
+            }
+          }
+
+          // Calculate the result
+          var res;
+          switch(selOp){
+            case "add": { res = opa + opb; break; }
+            case "sub": { res = opa - opb; break; }
+            case "mul": { res = opa * opb; break; }
+            case "div": { res = opa / opb; break; }
+          }
+
+          // Update the result
+          document.getElementById("result").innerHTML = res;
+
+        }
+
+
+-------------------------------------------------------
+
+
+var tablegen = function(val){
+        if(val != ''){
+          var parent = document.getElementById("table");
+          cleartable();
+          for(i = 1; i <= 10; i++){
+            var child = document.createElement("h3");
+            var text = document.createTextNode(val + " X " + i + " = " + (val*i))
+            child.appendChild(text);
+            parent.appendChild(child);
+          }
+        }
+      }
+
+      var cleartable = function(){
+        var parent = document.getElementById("table");
+        while(parent.firstChild){
+          parent.removeChild(parent.lastChild);
+        }
+      }
