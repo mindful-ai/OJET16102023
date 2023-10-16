@@ -30,7 +30,10 @@
         }
 
 
+
 -------------------------------------------------------
+
+
 
 
 var tablegen = function(val){
@@ -52,3 +55,19 @@ var tablegen = function(val){
           parent.removeChild(parent.lastChild);
         }
       }
+
+
+-------------------------------------------------------------
+
+var tablegen;
+        $(document).ready(function(){
+          tablegen = function(val){
+            if(val != ''){
+              $("#table").empty();
+              for(i = 1; i <= 10; i++){
+                var child = $('<h3></h3>').text(val + " X " + i + " = " + (val*i));
+                $("#table").append(child);
+              }
+            }
+          }
+        })
